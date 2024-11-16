@@ -1,8 +1,11 @@
 #include "windows_backend.h"
+#include "Code/memory.c"
 
 int main(int ArgumentCount, char **Argument)
 {
     int Result = 1;
+
+    Print("%x\n", LittleToBigEndianU16(0x1234));
 
     Print("%% Hello, wold! %%\n");
     Print("%% Hello, wold! %%\n");

@@ -13,5 +13,6 @@ SET common_linker_flags=/DEBUG:FASTLINK /INCREMENTAL:NO /OPT:REF
 
 PUSHD "%project_dir%\Build"
 IF %ERRORLEVEL% == 0 (CL /LD %common_compiler_flags% "%project_dir%\Source\Backend\Include\Library\platform.c" /link /EXPORT:PlatformFormatString /EXPORT:PlatformWriteConsole %common_linker_flags%)
+IF %ERRORLEVEL% == 0 (CL %common_compiler_flags% "%project_dir%\Source\Backend\windows_http_server.c" /link %common_linker_flags% "platform.lib" "ws2_32.lib")
 IF %ERRORLEVEL% == 0 (CL %common_compiler_flags% "%project_dir%\Source\Backend\windows_backend.c" /link %common_linker_flags% "platform.lib")
 POPD
